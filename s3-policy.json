@@ -1,0 +1,33 @@
+{
+	"Version": "2008-10-18",
+	"Id": "Policy14252817705331",
+	"Statement": [
+		{
+			"Sid": "Stmt14252817656881",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::107630771604:user/s3-copy"
+			},
+			"Action": "s3:*",
+			"Resource": "arn:aws:s3:::${var.bucket_name}/*"
+		},
+		{
+			"Sid": "Stmt14252817656882",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "${aws_iam_role.iam-role.arn}"
+			},
+			"Action": ["s3:Get*", "s3:List*"],
+			"Resource": "arn:aws:s3:::${var.bucket_name}/*"
+		},
+		{
+			"Sid": "Stmt14252817656883",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "${aws_iam_role.iam-role.arn}"
+			},
+			"Action": ["s3:Get*", "s3:List*"],
+			"Resource": "arn:aws:s3:::${var.bucket_name}/*"
+		}        
+	]
+}
